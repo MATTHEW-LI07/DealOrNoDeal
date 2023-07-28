@@ -1,0 +1,74 @@
+<html>
+<head>
+<title>main.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #a9b7c6;}
+.s1 { color: #629755; font-style: italic;}
+.s2 { color: #cc7832;}
+.s3 { color: #6897bb;}
+.s4 { color: #808080;}
+.s5 { color: #6a8759;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+main.py</font>
+</center></td></tr></table>
+<pre>
+<span class="s1">''' 
+“Deal or No Deal” (TM) is a game show on NBC. 
+In the this version of the game, there are 10 possible dollar amounts: $100, $500, $1 000, $5 
+000, $10 000, $25 000, $50 000, $100 000, $500 000, $1 000 000 sealed in imaginary briefcases. 
+These dollar amounts are numbered 1 – 10 (i.e. 1 ! $100, 2 ! $500, 3 ! $1 000, ..., 10 ! $1 
+000 000). Before the game starts the contestant will have chosen one of the briefcases as his/hers 
+to possibly keep. During the game, some of the ten possible dollar amounts have been eliminated 
+from the game because the contestant has selected some of the other briefcases and revealed the 
+amounts inside. 
+At some point, the contestant will stop opening briefcases, and a “Banker” will offer the contestant 
+cash in exchange for what might be contained in his/her chosen briefcase. Then the contestant is 
+asked: “Deal or No Deal?”. 
+This is a program that helps a player decide if he/she should choose “deal” or “no deal”, by calculating the average of the remaining amounts (i.e., all unopened briefcases, including his/her “own” 
+briefcase), and comparing that value to the “Banker’s” offer. If the offer is higher than the average, 
+then the player should ”deal” otherwise, the player should say “no deal”. 
+Input Specifications 
+The user must input a number n (1 &lt;= n &lt; 10) which indicates how many cases have been opened 
+so far, followed by a list of n integers between 1 and 10 representing the values in the game that 
+have been eliminated, followed by the “Banker’s” offer, all seperated by a single space. For example: 3 2 5 10 300 indicates 
+that briefcases containing $500, $10 000, and $1 000 000 have been eliminated and the Banker’s 
+offer is $300. You may assume that no duplicate case numbers are entered for the eliminated 
+values, and you may assume that the “Banker’s” offer is an integer greater than 10. 
+Output Specifications 
+ 
+'''</span>
+
+
+<span class="s2">def </span><span class="s0">deal_or_no_deal(input_string):</span>
+    <span class="s0">inputs = input_string.split()</span>
+    <span class="s0">num_opened = int(inputs[</span><span class="s3">0</span><span class="s0">])</span>
+    <span class="s0">eliminated = inputs[</span><span class="s3">1</span><span class="s0">:num_opened+</span><span class="s3">1</span><span class="s0">]</span>
+    <span class="s0">banker_offer = int(inputs[num_opened+</span><span class="s3">1</span><span class="s0">])</span>
+
+    <span class="s0">values = [</span><span class="s2">None, </span><span class="s3">100</span><span class="s2">, </span><span class="s3">500</span><span class="s2">, </span><span class="s3">1000</span><span class="s2">, </span><span class="s3">5000</span><span class="s2">, </span><span class="s3">10000</span><span class="s2">, </span><span class="s3">250000</span><span class="s2">, </span><span class="s3">50000</span><span class="s2">, </span><span class="s3">100000</span><span class="s2">, </span><span class="s3">500000</span><span class="s2">, </span><span class="s3">1000000</span><span class="s0">]</span>
+    <span class="s0">elim_values = []</span>
+    <span class="s2">for </span><span class="s0">i </span><span class="s2">in </span><span class="s0">eliminated:</span>
+        <span class="s0">elim_values.append(values[int(i)])</span>
+    <span class="s0">total_sum = </span><span class="s3">1691600  </span><span class="s4"># Sum of all possible amounts (1 + 2 + ... + 10)</span>
+    <span class="s0">remaining_sum = total_sum - sum(elim_values)  </span><span class="s4"># Sum of the remaining amounts</span>
+    <span class="s0">average = remaining_sum / (</span><span class="s3">10 </span><span class="s0">- num_opened)  </span><span class="s4"># Average of the remaining amounts</span>
+
+    <span class="s2">if </span><span class="s0">banker_offer &gt; average:</span>
+        <span class="s2">return </span><span class="s5">&quot;deal&quot;</span>
+    <span class="s2">else</span><span class="s0">:</span>
+        <span class="s2">return </span><span class="s5">&quot;no deal&quot;</span>
+
+<span class="s4"># Read input from the user</span>
+<span class="s0">input_str = input()</span>
+
+<span class="s4"># Call the function and print the result</span>
+<span class="s0">result = deal_or_no_deal(input_str)</span>
+<span class="s0">print(result)</span></pre>
+</body>
+</html>
