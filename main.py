@@ -19,9 +19,8 @@ The user must input a number n (1 <= n < 10) which indicates how many cases have
 so far, followed by a list of n integers between 1 and 10 representing the values in the game that
 have been eliminated, followed by the “Banker’s” offer, all seperated by a single space. For example: 3 2 5 10 300 indicates
 that briefcases containing $500, $10 000, and $1 000 000 have been eliminated and the Banker’s
-offer is $300. You may assume that no duplicate case numbers are entered for the eliminated
-values, and you may assume that the “Banker’s” offer is an integer greater than 10.
-Output Specifications
+offer is $300. Please ensure that no duplicate case numbers are entered for the eliminated
+values, and that the “Banker’s” offer is an integer greater than 10.
 
 '''
 
